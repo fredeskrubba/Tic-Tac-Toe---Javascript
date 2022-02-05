@@ -8,6 +8,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  overflow: hidden;
 }
 
 body h1 {
@@ -26,10 +27,57 @@ body h1 {
 
 #game-container .tic-option {
   padding: 3rem;
+  height: 2rem;
   border: black solid 5px;
+  font-size: 3.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #game-container .tic-option:hover {
+  cursor: pointer;
+}
+
+#modal {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#modal #end-text {
+  background-color: black;
+  color: lime;
+  border-radius: 10px;
+  padding: 4rem;
+}
+
+#modal #end-text h2 {
+  font-size: 5rem;
+}
+
+#modal #end-text button {
+  padding: 2rem;
+  font-size: 2rem;
+  background-color: black;
+  border: lime 5px solid;
+  color: lime;
+}
+
+#modal #end-text button:hover {
   cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

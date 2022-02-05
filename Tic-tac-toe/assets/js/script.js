@@ -4,8 +4,9 @@ const ticFields = Array.from(document.querySelectorAll(".tic-option"));
 // Empty arrays for storing players choices
 let playerOneTics = [];
 let playerTwoTics = [];
-
-
+const endScreen = document.querySelector("#modal");
+const winnerName = document.querySelector("#winner");
+const restartButton = document.querySelector("#restart-button")
 
 // object to keep track of who's turn it is, and who the winner is
 const gameData = {
@@ -28,6 +29,7 @@ const gameData = {
 function addMarker(element){
     if (gameData.playerOneTurn === true){
         element.textContent = "X";
+        element.style.color = "blue";
         gameData.playerOneTurn = false;
         gameData.playerTwoTurn = true;
         // add the fields id to an array to track which fields the player has checked
@@ -44,6 +46,7 @@ function addMarker(element){
         })
     } else if (gameData.playerTwoTurn === true){
         element.textContent = "O";
+        element.style.color = "red";
         gameData.playerTwoTurn = false;
         gameData.playerOneTurn = true;
         playerTwoTics.push(element.id);
@@ -70,12 +73,15 @@ ticFields.forEach(field => {
 
 // winner function that reloads the page after choosing a winner
 function winner(player){
-    alert(`And the winner is: ${player}!`);
-    window.location.reload();
+    endScreen.style.display = "flex";
+    winnerName.textContent = `${player}`;
 }
 
 function tie(){
     alert("issa tie");
     gameData.emptyFields = 9;
-    window.location.reload();
 }
+
+restartButton.addEventListener("click", ()=> {
+    window.location.reload();
+})
