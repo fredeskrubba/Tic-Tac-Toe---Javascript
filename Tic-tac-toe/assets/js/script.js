@@ -78,8 +78,8 @@ function winner(player){
 }
 
 function tie(){
-    alert("issa tie");
-    gameData.emptyFields = 9;
+    endScreen.style.display = "flex";
+    winnerName.textContent = `It's a tie`
 }
 
 restartButton.addEventListener("click", ()=> {
