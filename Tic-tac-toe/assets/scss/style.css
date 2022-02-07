@@ -15,6 +15,7 @@ body {
 body h1 {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
+  font-size: 5rem;
 }
 
 #game-container {
@@ -23,13 +24,12 @@ body h1 {
   width: 30%;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
-  gap: 0.2rem;
+  margin-top: 2rem;
 }
 
 #game-container .tic-option {
   padding: 3rem;
   height: 2rem;
-  border: black solid 5px;
   font-size: 3.3rem;
   font-weight: 700;
   display: -webkit-box;
@@ -45,6 +45,24 @@ body h1 {
 
 #game-container .tic-option:hover {
   cursor: pointer;
+}
+
+#game-container #field-1, #game-container #field-4, #game-container #field-7 {
+  border-right: 10px solid black;
+  border-bottom: 10px solid black;
+}
+
+#game-container #field-2, #game-container #field-5, #game-container #field-8 {
+  border-bottom: 10px solid black;
+}
+
+#game-container #field-3, #game-container #field-6, #game-container #field-9 {
+  border-left: 10px solid black;
+  border-bottom: 10px solid black;
+}
+
+#game-container #field-7, #game-container #field-8, #game-container #field-9 {
+  border-bottom: none;
 }
 
 #modal {
