@@ -3,6 +3,7 @@ const ticFields = Array.from(document.querySelectorAll(".tic-option"));
 
 // Screen that shows the winner
 const endScreen = document.querySelector("#modal");
+const winnerText = document.querySelector("#winner-text");
 const winnerName = document.querySelector("#winner");
 const restartButton = document.querySelector("#restart-button");
 
@@ -40,7 +41,10 @@ function addMarker(element){
         // if all 3 of the fields in an array are in the playertics array, the player wins
         gameData.winningFields.forEach(fieldArray =>{
             if (gameData.playerOneTics.includes(fieldArray[0]) && gameData.playerOneTics.includes(fieldArray[1]) && gameData.playerOneTics.includes(fieldArray[2])){
-                winner("X");      
+                winner("X");
+                winnerText.style.color = "blue";
+                restartButton.style.color = "blue";
+                restartButton.style.borderColor = "blue";     
             }
         })
     } else if (gameData.playerTwoTurn === true){
@@ -51,7 +55,10 @@ function addMarker(element){
         gameData.playerTwoTics.push(element.id);
         gameData.winningFields.forEach(fieldArray => {
             if (gameData.playerTwoTics.includes(fieldArray[0]) && gameData.playerTwoTics.includes(fieldArray[1]) && gameData.playerTwoTics.includes(fieldArray[2])){
-                winner("O");    
+                winner("O");
+                winnerText.style.color = "red";
+                restartButton.style.color = "red";
+                restartButton.style.borderColor = "red";   
             }
         })
     }
@@ -79,7 +86,7 @@ function winner(player){
 
 function tie(){
     endScreen.style.display = "flex";
-    winnerName.textContent = `It's a tie`;
+    winnerText.textContent = `It's a tie`;
 }
 
 restartButton.addEventListener("click", ()=> {
