@@ -13,6 +13,7 @@ const gameData = {
     playerOneTurn: true,
     playerTwoTurn: false,
     emptyFields: 9,
+    // an array with an array for every combination of tiles that's a win
     winningFields: [
         ["field-1", "field-2", "field-3"],
         ["field-1", "field-4", "field-7"],
@@ -39,7 +40,7 @@ function addMarker(element){
         // if all 3 of the fields in an array are in the playertics array, the player wins
         gameData.winningFields.forEach(fieldArray =>{
             if (playerOneTics.includes(fieldArray[0]) && playerOneTics.includes(fieldArray[1]) && playerOneTics.includes(fieldArray[2])){
-                winner("player 1");        
+                winner("X");        
             } else if(gameData.emptyFields === 0){
                 tie()
             }
@@ -53,7 +54,7 @@ function addMarker(element){
         gameData.emptyFields -= 1;
         gameData.winningFields.forEach(fieldArray =>{
             if (playerTwoTics.includes(fieldArray[0]) && playerTwoTics.includes(fieldArray[1]) && playerTwoTics.includes(fieldArray[2])){
-                winner("player 2");        
+                winner("O");        
             } else if(gameData.emptyFields === 0){
                 tie()
             }
